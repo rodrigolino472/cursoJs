@@ -1,0 +1,4 @@
+### Aula 1 preparando ambiente 
+ - Instalar nodeJs com cli
+ - Instalar vs code 
+ - Instalar extensão no vs code code runner
