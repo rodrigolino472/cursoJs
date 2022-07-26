@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício aula 15</title>
+</head>
+<body>
+  <h1>O seu número é: <span id="numero-informado"></span></h1>
+  <div id="texto">
+
+  </div>
+  <script>
+    let numero = Number(prompt('Informe um número: '))
+    let texto = document.getElementById('texto')
+    texto.innerHTML = `<p>A raiz quadrada de ${numero} é ${Math.pow(numero, 2)}<p/>`
+    texto.innerHTML += `<p>${numero} é inteiro?: ${Number.isInteger(numero)}<p/>`
+    texto.innerHTML += `<p>É NaN?: ${Number.isNaN(numero)}<p/>`
+    texto.innerHTML += `<p>Arredondado para baixo: ${Math.floor(numero)}<p/>`
+    texto.innerHTML += `<p>Arredondado para cima: ${Math.ceil(numero)}<p/>`
+    texto.innerHTML += `<p>Com duas casas decimais: ${numero.toFixed(2)}<p/>`
+  </script>
+</body>
+</html>
