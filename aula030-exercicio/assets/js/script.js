@@ -1,4 +1,4 @@
-let h1 = document.querySelector('.container h1');
+/*let h1 = document.querySelector('.container h1');
 const data = new Date();
 h1.innerHTML = data.toString();
 
@@ -77,3 +77,18 @@ function mes(mes){
 
 h1.innerHTML = diaDaSemana(data.getDay()) + ' ';
 h1.innerHTML += mes(data.getMonth());
+
+const h1 = document.querySelector('.container h1');
+const data = new Date();
+console.log(data.toLocaleDateString());
+*/
+
+const h1 = document.querySelector('.container h1');
+const data = new Date();
+
+function mes(data){
+  let diaMes = data.getMonth();
+  const meses = ['janeiro', 'fevereiro', 'março', 'maio', 'abril', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+  return meses[diaMes];
+};
+h1.innerHTML = mes(data);
