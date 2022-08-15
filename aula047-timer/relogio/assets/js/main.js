@@ -1,33 +1,30 @@
-const relogio = document.querySelector('.relogio')
-const iniciar = document.querySelector('.iniciar')
-const pausar = document.querySelector('.pausar')
-const zerar = document.querySelector('.zerar')
-let segundos = 0;
+let painel = document.querySelector('.relogio')
+let seconds = 0
 let timer;
 
-function contadorDeSegundos(segundos){
-  const tempo = new Date(segundos * 1000)
-  return tempo.toLocaleTimeString('pt-BR', {
-    timeZone: 'UTC'
-  })
+const momento = (seconds) => {
+  let tempoCorrido = new Date(seconds * 1000)
+  return tempoCorrido.toLocaleTimeString('pt-BR', {timeZone: 'GMT'})
 }
-function start(){
+const contador = () => {
   timer = setInterval(() => {
-    segundos++
-    relogio.innerHTML = contadorDeSegundos(segundos)
-  }, 1000)
+    seconds++
+    painel.innerHTML = momento(seconds)
+  }, 1000);
 }
-pausar.addEventListener('click', () => {
-  clearInterval(timer);
-})
-zerar.addEventListener('click', () => {
-  relogio.innerHTML = '00:00:00';
-  segundos = 0;
-  clearInterval(timer)
-})
-
-iniciar.addEventListener('click', () => {
-  relogio.classList.remove('pausado')
-  clearInterval(timer)
-  start()
+document.addEventListener('click', (e) => {
+  let element = e.target
+  if(element.classList.contains('iniciar')){
+    clearInterval(timer)
+    contador()
+    painel.classList.remove('pausado')
+  }else if(element.classList.contains('pausar')){
+    clearInterval(timer)
+    painel.classList.add('pausado')
+  }else if(element.classList.contains('zerar')){
+    clearInterval(timer)
+    seconds = 0
+    painel.innerHTML = momento(seconds)
+    painel.classList.remove('pausado')
+  }
 })
