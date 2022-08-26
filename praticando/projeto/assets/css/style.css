@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+}
+.container{
+  width: 60%;
+  margin: 0 auto;
+}
+.title{
+  text-align: center;
+}
+.taskList{
+  width: 100%;
+}
+.addTask{
+  margin: 0 auto;
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.addTask input{
+  border: 1px solid #ccc;
+  padding: .1rem .45rem;
+  width: 15rem;
+  margin: .3rem 0;
+}
+.addTask button{
+  border: 1px solid #ccc;
+  padding: .1rem .45rem;
+}
+li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid transparent;
+}
+li:hover{
+  border-color: #ccc;
+}
+.deleteTask{
+  padding: 0 .3rem;
+  background: #f1f1f1;
+}

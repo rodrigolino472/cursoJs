@@ -25,7 +25,7 @@ function saveTask(){
   const tasks = toDoList.querySelectorAll('li')
   const taskList = []
 
-  for(task of tasks){
+  for(let task of tasks){
     let taskDescription = task.innerText
     taskDescription = taskDescription.replace('delete', '').trim()
     taskList.push(taskDescription)
