@@ -1,24 +1,21 @@
-function Produto (nome, preco, estoque){
-    //O this como parametro referencia o objeto, em seguida informamos a propriedade
+//defineProperty -> Getters e Setters
+function Produto(nome, preco, estoque) {
+    this.nome = nome;
+    this.preco = preco
+    
+    let estoquePrivado = estoque
     Object.defineProperty(this, 'estoque', {
-        enumerable: true,   //Mostra a chave, caso estivesse false, a propriedade ficaria oculta
-        value: estoque,     //definimos o valor da propriedade
-        writable: false,    //diz se posso alterar o valor dessa propriedade
-        configurable: false  //define se posso configurar a chave ou não
-    })
-    Object.defineProperties(this, {
-        nome: {
-            enumerable: true,   
-            value: nome,     
-            writable: false,    
-            configurable: false
+        enumerable: true, //mostra a chave
+        configurable: true, //configuravel
+        get: function(){
+            return estoque
         },
-        preco: {
-            enumerable: true,   
-            value: preco,     
-            writable: false,    
-            configurable: false
+        set: function(valor){
+            estoquePrivado = valor
         }
     })
-
 }
+
+const p1 = new Produto('camiseta', 20, 3)
+p1.estoque = 500
+console.log(p1.estoque)
